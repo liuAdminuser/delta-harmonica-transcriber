@@ -17,12 +17,12 @@
   "octaveModifiers": {
     "bass": { "button": "mouse-left", "midiOffset": -12, "notationPrefix": "(", "notationSuffix": ")" },
     "middle": { "button": null, "midiOffset": 0, "notationPrefix": "", "notationSuffix": "" },
-    "treble": { "button": "mouse-right", "midiOffset": +12, "notationPrefix": "【", "notationSuffix": "】" }
+    "treble": { "button": "mouse-right", "midiOffset": 12, "notationPrefix": "【", "notationSuffix": "】" }
   },
 
   "sharpModifier": {
     "button": "mouse-middle",
-    "midiOffset": +1,
+    "midiOffset": 1,
     "notationPrefix": "#",
     "notationSuffix": ""
   },

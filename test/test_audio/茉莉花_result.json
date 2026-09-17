@@ -7,7 +7,7 @@
       "duration": 1.1262,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -15,7 +15,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -23,7 +23,7 @@
       "duration": 0.5237,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -31,7 +31,7 @@
       "duration": 0.5341,
       "type": "note",
       "midi": 72,
-      "num": 1,
+      "num": "1",
       "octave": "high"
     },
     {
@@ -39,7 +39,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -47,7 +47,7 @@
       "duration": 0.5237,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -55,7 +55,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -63,7 +63,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 62,
-      "num": 2,
+      "num": "2",
       "octave": "mid"
     },
     {
@@ -71,7 +71,7 @@
       "duration": 0.5341,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -79,7 +79,7 @@
       "duration": 0.5341,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -87,7 +87,7 @@
       "duration": 0.5341,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -95,7 +95,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 62,
-      "num": 2,
+      "num": "2",
       "octave": "mid"
     },
     {
@@ -103,7 +103,7 @@
       "duration": 0.547,
       "type": "note",
       "midi": 60,
-      "num": 1,
+      "num": "1",
       "octave": "mid"
     }
   ],
@@ -113,6 +113,19 @@
     "onsetThreshold": 0.5,
     "frameThreshold": 0.25,
     "minimumNoteLength": 40,
-    "processingTimeMs": 1698.6
+    "processingTimeMs": 1707.7
+  },
+  "_diagnostics": {
+    "rawDetected": 22,
+    "afterOnsetSelect": 22,
+    "afterSpikeFilter": 22,
+    "afterSmooth": 22,
+    "afterOutlier": 22,
+    "afterOctaveShift": 22,
+    "afterRangeFilter": 22,
+    "afterMerge": 13,
+    "afterKeymap": 13,
+    "droppedByKeymap": 0,
+    "retry": false
   }
 }

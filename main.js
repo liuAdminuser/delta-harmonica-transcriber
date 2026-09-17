@@ -245,7 +245,8 @@ ipcMain.handle('transcribe-file', async (_, filePath) => {
     key: result.key || 'C',
     bpm: result.bpm || 120,
     notes: result.notes || [],
-    _meta: result._meta || { engine: 'basic-pitch ONNX' }
+    _meta: result._meta || { engine: 'basic-pitch ONNX' },
+    _diagnostics: result._diagnostics || null
   };
 });
 

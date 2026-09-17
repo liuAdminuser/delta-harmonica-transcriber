@@ -7,7 +7,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -15,7 +15,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -23,7 +23,7 @@
       "duration": 0.5921,
       "type": "note",
       "midi": 72,
-      "num": 1,
+      "num": "1",
       "octave": "high"
     },
     {
@@ -31,7 +31,7 @@
       "duration": 0.5702,
       "type": "note",
       "midi": 74,
-      "num": 2,
+      "num": "2",
       "octave": "high"
     },
     {
@@ -39,7 +39,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 72,
-      "num": 1,
+      "num": "1",
       "octave": "high"
     },
     {
@@ -47,7 +47,7 @@
       "duration": 0.5921,
       "type": "note",
       "midi": 71,
-      "num": 7,
+      "num": "7",
       "octave": "mid"
     },
     {
@@ -55,7 +55,7 @@
       "duration": 0.5818,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -63,7 +63,7 @@
       "duration": 0.5921,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -71,7 +71,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 65,
-      "num": 4,
+      "num": "4",
       "octave": "mid"
     },
     {
@@ -79,7 +79,7 @@
       "duration": 0.4773,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -87,7 +87,7 @@
       "duration": 0.4992,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -95,7 +95,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 72,
-      "num": 1,
+      "num": "1",
       "octave": "high"
     },
     {
@@ -103,7 +103,7 @@
       "duration": 0.5702,
       "type": "note",
       "midi": 71,
-      "num": 7,
+      "num": "7",
       "octave": "mid"
     },
     {
@@ -111,7 +111,7 @@
       "duration": 0.5921,
       "type": "note",
       "midi": 69,
-      "num": 6,
+      "num": "6",
       "octave": "mid"
     },
     {
@@ -119,7 +119,7 @@
       "duration": 0.5805,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -127,7 +127,7 @@
       "duration": 0.5818,
       "type": "note",
       "midi": 65,
-      "num": 4,
+      "num": "4",
       "octave": "mid"
     },
     {
@@ -135,7 +135,7 @@
       "duration": 0.5921,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     }
   ],
@@ -145,6 +145,19 @@
     "onsetThreshold": 0.5,
     "frameThreshold": 0.25,
     "minimumNoteLength": 40,
-    "processingTimeMs": 1728.5
+    "processingTimeMs": 1805.5
+  },
+  "_diagnostics": {
+    "rawDetected": 26,
+    "afterOnsetSelect": 24,
+    "afterSpikeFilter": 24,
+    "afterSmooth": 24,
+    "afterOutlier": 24,
+    "afterOctaveShift": 24,
+    "afterRangeFilter": 24,
+    "afterMerge": 17,
+    "afterKeymap": 17,
+    "droppedByKeymap": 0,
+    "retry": false
   }
 }

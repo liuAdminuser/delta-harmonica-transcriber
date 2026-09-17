@@ -7,7 +7,7 @@
       "duration": 1.0101,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -15,7 +15,7 @@
       "duration": 0.5457,
       "type": "note",
       "midi": 65,
-      "num": 4,
+      "num": "4",
       "octave": "mid"
     },
     {
@@ -23,7 +23,7 @@
       "duration": 1.1042,
       "type": "note",
       "midi": 67,
-      "num": 5,
+      "num": "5",
       "octave": "mid"
     },
     {
@@ -31,7 +31,7 @@
       "duration": 0.4412,
       "type": "note",
       "midi": 65,
-      "num": 4,
+      "num": "4",
       "octave": "mid"
     },
     {
@@ -39,7 +39,7 @@
       "duration": 0.4412,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -47,7 +47,7 @@
       "duration": 0.4412,
       "type": "note",
       "midi": 62,
-      "num": 2,
+      "num": "2",
       "octave": "mid"
     },
     {
@@ -55,7 +55,7 @@
       "duration": 1.0333,
       "type": "note",
       "midi": 60,
-      "num": 1,
+      "num": "1",
       "octave": "mid"
     },
     {
@@ -63,7 +63,7 @@
       "duration": 0.4309,
       "type": "note",
       "midi": 62,
-      "num": 2,
+      "num": "2",
       "octave": "mid"
     },
     {
@@ -71,7 +71,7 @@
       "duration": 1.1262,
       "type": "note",
       "midi": 64,
-      "num": 3,
+      "num": "3",
       "octave": "mid"
     },
     {
@@ -79,7 +79,7 @@
       "duration": 1.1158,
       "type": "note",
       "midi": 62,
-      "num": 2,
+      "num": "2",
       "octave": "mid"
     }
   ],
@@ -89,6 +89,19 @@
     "onsetThreshold": 0.5,
     "frameThreshold": 0.25,
     "minimumNoteLength": 40,
-    "processingTimeMs": 1704.4
+    "processingTimeMs": 1658.3
+  },
+  "_diagnostics": {
+    "rawDetected": 28,
+    "afterOnsetSelect": 21,
+    "afterSpikeFilter": 21,
+    "afterSmooth": 21,
+    "afterOutlier": 21,
+    "afterOctaveShift": 21,
+    "afterRangeFilter": 21,
+    "afterMerge": 10,
+    "afterKeymap": 10,
+    "droppedByKeymap": 0,
+    "retry": false
   }
 }

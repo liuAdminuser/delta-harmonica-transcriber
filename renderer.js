@@ -27,14 +27,6 @@ function midiToGameKey(midi, keymap) {
   const sharp = km.sharpModifier || { midiOffset: 1 };
   const naturalPCS = km.naturalPitchClasses || [0, 2, 4, 5, 7, 9, 11];
 
-  // 计算音区
-  let octave = 'middle';
-  let octaveMidi = midi;
-  const trebleMin = (baseKeys['1']?.midiNote || 60) + 12;
-  const bassMax = (baseKeys['1']?.midiNote || 60) - 1;
-  if (midi >= trebleMin) { octave = 'treble'; octaveMidi -= 12; }
-  else if (midi <= bassMax) { octave = 'bass'; octaveMidi += 12; }
-
   // 检查是否升半音
   let isSharp = false;
   let baseMidi = midi;
@@ -43,28 +35,47 @@ function midiToGameKey(midi, keymap) {
     isSharp = true;
     baseMidi = midi - 1;
   }
+  const basePc = baseMidi % 12;
 
-  // 找对应基本键
+  // 找 pitch class 匹配的键（不要求同八度，与 transcribe.py 一致）
   let digit = null;
   let keyboard = '';
-  for (const [k, v] of Object.entries(baseKeys)) {
-    if (v.midiNote === baseMidi) { digit = k; keyboard = v.keyboard || ''; break; }
+  const sortedKeys = Object.entries(baseKeys).sort((a, b) => (a[1].midiNote || 0) - (b[1].midiNote || 0));
+  for (const [k, v] of sortedKeys) {
+    if ((v.midiNote || 0) % 12 === basePc) {
+      digit = k;
+      keyboard = v.keyboard || '';
+      break;
+    }
   }
+
+  // 兜底：如果 baseKeys 音高假设偏差，找最近自然音键
   if (digit === null) {
-    // 兜底：round down 找最近自然音
-    for (let d = 1; d <= 2; d++) {
-      const lower = ((baseMidi - d) % 12 + 12) % 12;
-      if (naturalPCS.includes(lower)) {
-        const targetMidi = baseMidi - d;
-        for (const [k, v] of Object.entries(baseKeys)) {
-          if (v.midiNote === targetMidi) { digit = k; keyboard = v.keyboard || ''; break; }
-        }
-        break;
+    let bestDist = 999;
+    for (const [k, v] of sortedKeys) {
+      const keyPc = (v.midiNote || 0) % 12;
+      const dist = Math.min(Math.abs(keyPc - basePc), 12 - Math.abs(keyPc - basePc));
+      if (dist < bestDist) {
+        bestDist = dist;
+        digit = k;
+        keyboard = v.keyboard || '';
       }
     }
   }
 
   if (digit === null) return null;
+
+  // 八度划分：以 baseKey "1" 的 midiNote 为全局参考点（与 transcribe.py 一致）
+  const refMidi = (baseKeys['1']?.midiNote || 60);
+  let octave = 'middle';
+  let octaveMidi = midi;
+  if (midi >= refMidi + 12) {
+    octave = 'treble';
+    octaveMidi -= 12;
+  } else if (midi <= refMidi - 1) {
+    octave = 'bass';
+    octaveMidi += 12;
+  }
 
   // 生成 notation
   const octCfg = octaves[octave] || { notationPrefix: '', notationSuffix: '' };
@@ -235,7 +246,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderScore(state.score); btnSave.disabled = false;
       if (btnExport) btnExport.disabled = false;
       btnAnalyze.disabled = false; btnAnalyze.textContent = '\u{1F504} 重新扒谱';
-      statusBar.textContent = `\u2705 完成! ${harmonicNotes.length} 音符, BPM≈${bpm}`;
+
+      // 诊断链路显示
+      const diag = sc._diagnostics;
+      let diagMsg = '';
+      if (diag) {
+        diagMsg = ` | 链路: ${diag.rawDetected}→${diag.afterOnsetSelect}→${diag.afterRangeFilter}→${diag.afterKeymap}`;
+        if (diag.retry) diagMsg += ' (已自动放宽阈值重试)';
+      }
+      statusBar.textContent = `\u2705 完成! ${harmonicNotes.length} 音符, BPM≈${bpm}${diagMsg}`;
     } catch (e) {
       console.error('[扒谱失败]', e);
       btnAnalyze.disabled = false; btnAnalyze.textContent = '\u{1F50D} 开始扒谱';
