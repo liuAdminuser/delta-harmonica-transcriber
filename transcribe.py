@@ -13,6 +13,22 @@ Pipeline:
 import sys, os, json, time, argparse, warnings
 warnings.filterwarnings('ignore')
 
+# 依赖预检：在导入时给出友好提示
+try:
+    from basic_pitch.inference import predict
+    from basic_pitch import ICASSP_2022_MODEL_PATH
+except ImportError as e:
+    print(f"ERROR: basic_pitch import failed: {e}", file=sys.stderr)
+    print("Please install: pip install basic-pitch onnxruntime", file=sys.stderr)
+    sys.exit(1)
+
+try:
+    import onnxruntime as ort
+except ImportError as e:
+    print(f"ERROR: onnxruntime import failed: {e}", file=sys.stderr)
+    print("Please install: pip install onnxruntime", file=sys.stderr)
+    sys.exit(1)
+
 # 口琴硬约束
 HARMONICA_MIN = 48
 HARMONICA_MAX = 84
@@ -125,25 +141,35 @@ def midi_to_harmonica(midi, keymap):
     # 八度划分：以 baseKey "1" 的 midiNote 为全局参考点
     ref_midi = base_keys.get('1', {}).get('midiNote', 60)
     if midi >= ref_midi + 12:
-        octave = 'high'
+        octave_key = 'treble'
     elif midi <= ref_midi - 1:
-        octave = 'low'
+        octave_key = 'bass'
     else:
-        octave = 'mid'
+        octave_key = 'middle'
 
     # 特殊兼容：midi 84 且 pitch class 为 C 时沿用 'i' 标记
     if midi == 84 and base_pc == 0:
-        return {'num': 'i', 'octave': 'high'}
+        digit = 'i'
 
-    return {'num': digit, 'octave': octave}
+    # 生成记号（使用 keymap 的 notationPrefix/Suffix）
+    mod_info = keymap.get('octaveModifiers', {}).get(octave_key, {})
+    prefix = mod_info.get('notationPrefix', '')
+    suffix = mod_info.get('notationSuffix', '')
+    notation = f"{prefix}{digit}{suffix}"
+
+    return {
+        'num': digit,
+        'octave': octave_key,
+        'notation': notation,
+        'mappingError': 0
+    }
 
 
 def run_basic_pitch(wav_path, model_path, onset_threshold=0.55, frame_threshold=0.30,
                     minimum_note_length=50, minimum_frequency=130.0, maximum_frequency=1046.5,
                     melodia_trick=True, verbose=False):
     """调 basic-pitch ONNX, 返回 polyphonic notes (含 velocity)."""
-    from basic_pitch.inference import predict
-
+    # basic_pitch.predict already imported at module top
     t0 = time.time()
     _, midi_data, _ = predict(
         wav_path,
@@ -336,6 +362,8 @@ def to_json_notes(melody, keymap):
             'midi': n['midi'],
             'num': h['num'],
             'octave': h['octave'],
+            'notation': h['notation'],
+            'mappingError': h['mappingError'],
         })
     return out, dropped
 

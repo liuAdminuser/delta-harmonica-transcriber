@@ -151,6 +151,46 @@ function resolvePython() {
   return process.platform === 'win32' ? 'python.exe' : 'python3';
 }
 
+// 依赖预检：Python + basic-pitch + onnxruntime
+async function checkDependencies() {
+  const pythonExe = resolvePython();
+  const checkPy = new Promise((resolve) => {
+    const proc = spawn(pythonExe, ['--version'], { windowsHide: true });
+    let out = '', err = '';
+    proc.stdout.on('data', d => { out += d.toString(); });
+    proc.stderr.on('data', d => { err += d.toString(); });
+    proc.on('close', code => {
+      if (code === 0) resolve({ ok: true, version: (out || err).trim() });
+      else resolve({ ok: false, error: 'Python 未安装或未加入 PATH' });
+    });
+    proc.on('error', () => resolve({ ok: false, error: '无法启动 Python' }));
+  });
+  const pyResult = await checkPy;
+  if (!pyResult.ok) {
+    return { ok: false, message: `依赖缺失: ${pyResult.error}\n\n安装指引:\n1. 安装 Python 3.10+: https://www.python.org/downloads/\n2. 打开命令行执行: pip install basic-pitch onnxruntime` };
+  }
+
+  const checkMod = new Promise((resolve) => {
+    const script = `import sys\ntry:\n    import basic_pitch; print('basic_pitch: OK')\nexcept ImportError as e:\n    print(f'basic_pitch: MISSING - {e}'); sys.exit(1)\ntry:\n    import onnxruntime; print('onnxruntime: OK')\nexcept ImportError as e:\n    print(f'onnxruntime: MISSING - {e}'); sys.exit(1)`;
+    const proc = spawn(pythonExe, ['-c', script], { windowsHide: true });
+    let out = '', err = '';
+    proc.stdout.on('data', d => { out += d.toString(); });
+    proc.stderr.on('data', d => { err += d.toString(); });
+    proc.on('close', code => {
+      if (code === 0) resolve({ ok: true, details: out.trim() });
+      else resolve({ ok: false, error: out.trim() || err.trim() || '未知模块导入错误' });
+    });
+    proc.on('error', err => resolve({ ok: false, error: err.message }));
+  });
+  const modResult = await checkMod;
+  if (!modResult.ok) {
+    return { ok: false, message: `Python 依赖缺失: ${modResult.error}\n\n安装指引:\npip install basic-pitch onnxruntime\n\n如果已安装，请确认环境正确：python3 -m pip install basic-pitch onnxruntime` };
+  }
+  return { ok: true, message: `环境检查通过 (${pyResult.version})` };
+}
+
+ipcMain.handle('check-dependencies', async () => checkDependencies());
+
 // 兼容开发与打包后环境：extraResources 会放在 process.resourcesPath/resources/
 function resolveResource(fileName) {
   if (app.isPackaged) {
@@ -171,6 +211,12 @@ const MODEL_PATH = resolveResource('nmp.onnx');
 ipcMain.handle('transcribe-file', async (_, filePath) => {
   log('transcribe: ' + filePath);
   mainWindow?.webContents.send('analyze-progress', 5);
+
+  // 依赖预检
+  const depCheck = await checkDependencies();
+  if (!depCheck.ok) {
+    throw new Error(depCheck.message);
+  }
 
   const tmpDir = os.tmpdir();
   const ts = Date.now();
@@ -217,8 +263,10 @@ ipcMain.handle('transcribe-file', async (_, filePath) => {
     proc.on('close', (code) => {
       clearTimeout(timeout);
       if (code !== 0) {
-        log('python stderr: ' + err.split('\n').slice(-5).join('\n'));
-        reject(new Error('python exit ' + code));
+        const lastErr = err.split('\n').slice(-10).join('\n');
+        log('python stderr: ' + lastErr);
+        const detail = lastErr ? '\nPython stderr:\n' + lastErr : '';
+        reject(new Error('python exit ' + code + detail));
       } else resolve();
     });
   });

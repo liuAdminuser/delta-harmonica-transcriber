@@ -295,9 +295,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         c.appendChild(span);
       } else {
         let numStr = String(note.num);
-        if (note.octave === 'high' && note.num === 1) numStr = 'i';
-        if (note.octave === 'low') c.classList.add('low');
-        if (note.octave === 'high') c.classList.add('high');
+        if (note.octave === 'treble' && note.num === 1) numStr = 'i';
+        if (note.octave === 'bass') c.classList.add('low');
+        if (note.octave === 'treble') c.classList.add('high');
         if (note.sharp) c.classList.add('sharp');
 
         const nn = document.createElement('span');
@@ -307,11 +307,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (state.showOctave) {
           const od = document.createElement('span');
           od.className = 'od';
-          if (note.octave === 'low') {
+          if (note.octave === 'bass') {
             od.classList.add('low');
             const d = document.createElement('span'); d.className = 'd'; od.appendChild(d);
-          } else if (note.octave === 'high') {
+          } else if (note.octave === 'treble') {
             od.classList.add('high'); od.textContent = '\u00B7';
+          } else if (note.octave === 'middle') {
+            od.classList.add('mid'); od.textContent = '\u2014';
           }
           c.appendChild(od);
         }
@@ -386,8 +388,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       lines.push(noteStrs.slice(i, i + 16).join(' '));
     }
     lines.push('');
-    lines.push('# 操作说明: 数字=中音, (数字)=低音, 【数字】=高音, #=升半音');
-    lines.push('# 低音: 按住鼠标左键 + 按键 | 高音: 按住鼠标右键 + 按键 | 升半音: 按住鼠标中键 + 按键');
+    lines.push('# 操作说明: 数字=中音, (数字)=低音, 【数字】=高音');
+    lines.push('# 低音: 按住鼠标左键 + 按键 | 中音: 按住鼠标中键 + 按键 | 高音: 按住鼠标右键 + 按键');
     return lines.join('\n');
   }
 

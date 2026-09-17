@@ -16,11 +16,12 @@
 
   "octaveModifiers": {
     "bass": { "button": "mouse-left", "midiOffset": -12, "notationPrefix": "(", "notationSuffix": ")" },
-    "middle": { "button": null, "midiOffset": 0, "notationPrefix": "", "notationSuffix": "" },
+    "middle": { "button": "mouse-middle", "midiOffset": 0, "notationPrefix": "", "notationSuffix": "" },
     "treble": { "button": "mouse-right", "midiOffset": 12, "notationPrefix": "【", "notationSuffix": "】" }
   },
 
   "sharpModifier": {
+    "_comment": "UNVERIFIED / DEFAULT DISABLED — user clarified game uses left/middle/right for octaves only",
     "button": "mouse-middle",
     "midiOffset": 1,
     "notationPrefix": "#",
