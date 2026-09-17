@@ -1,0 +1,80 @@
+{
+  "name": "欢乐颂",
+  "notes": [
+    {
+      "time": 0.0,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 0.58,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 1.16,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 1.74,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 2.32,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 2.9,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 3.48,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 4.06,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 4.64,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.22,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.8,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 6.38,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 6.96,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 7.54,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 8.12,
+      "midi": 62,
+      "notation": "2"
+    }
+  ]
+}

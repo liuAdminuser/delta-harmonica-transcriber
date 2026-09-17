@@ -1,0 +1,85 @@
+{
+  "name": "月亮代表我的心",
+  "notes": [
+    {
+      "time": 0.0,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 0.68,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 1.36,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 2.04,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 2.72,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 3.4,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 4.08,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 4.76,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.44,
+      "midi": 59,
+      "notation": "(7)"
+    },
+    {
+      "time": 6.12,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 6.8,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 7.48,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 8.16,
+      "midi": 59,
+      "notation": "(7)"
+    },
+    {
+      "time": 8.84,
+      "midi": 57,
+      "notation": "(6)"
+    },
+    {
+      "time": 9.52,
+      "midi": 55,
+      "notation": "(5)"
+    },
+    {
+      "time": 10.2,
+      "midi": 57,
+      "notation": "(6)"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>三角洲口琴转谱工具</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <!-- 标题栏 -->
+    <div class="title-bar">
+      <div class="tabs">
+        <div class="tab active" data-tab="convert">&#127932; 扒谱</div>
+        <div class="tab" data-tab="practice">&#127929; 练习</div>
+        <div class="tab" data-tab="settings">&#9881;&#65039; 设置</div>
+      </div>
+      <div class="win-ctrls">
+        <button class="ctrl-btn settings" id="btnSettings" title="设置">&#9881;&#65039;</button>
+        <button class="ctrl-btn" id="btnMinimize">&#8212;</button>
+        <button class="ctrl-btn close" id="btnClose">&#215;</button>
+      </div>
+    </div>
+
+    <!-- ============ 扒谱页 ============ -->
+    <div class="page active" id="page-convert">
+      <div class="toolbar">
+        <button class="btn-primary" id="btnImport">&#128450; 选择音频</button>
+        <button class="btn-analyze" id="btnAnalyze" disabled>&#128269; 开始扒谱</button>
+        <button class="btn-save" id="btnSave" disabled>&#128190; 保存简谱</button>
+        <button class="btn-export" id="btnExport" disabled>&#128221; 导出谱子</button>
+        <span class="file-label" id="fileLabel">无</span>
+      </div>
+      <div class="status" id="statusBar">等待导入音频...</div>
+
+      <div class="score-meta" id="scoreMeta" style="display:none;">
+        <span>调号: <b id="mKey">1=C</b></span>
+        <span>BPM: <b id="mBpm">120</b></span>
+        <span>音符: <b id="mNotes">0</b></span>
+        <label>调号:
+          <select id="mKeySelect">
+            <option value="-5">G</option><option value="-4">A&#9837;</option><option value="-3">A</option>
+            <option value="-2">B&#9837;</option><option value="-1">B</option>
+            <option value="0" selected>C</option>
+            <option value="1">C&#9839;</option><option value="2">D</option><option value="3">E&#9837;</option>
+            <option value="4">E</option><option value="5">F</option><option value="6">F&#9839;</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- 移调提示卡片 -->
+      <div class="transpose-card" id="transposeCard" style="display:none;"></div>
+
+      <div class="score-display" id="scoreDisplay">
+        <div class="empty" id="emptyHint">
+          <div class="empty-icon">&#127925;</div>
+          <div>导入 mp3 / wav / ogg / m4a / mp4 等格式</div>
+          <div class="hint">使用 ffmpeg + basic-pitch ONNX 自动生成键位谱</div>
+        </div>
+        <div class="score-scroll" id="scoreScroll" style="display:none;">
+          <div class="score-line" id="scoreLine"></div>
+        </div>
+      </div>
+
+      <!-- 扒谱页键位提示 -->
+      <div class="keyhint-row convert-keyhint" id="convertKeyhint" style="display:none;">
+        <div class="kh-key" data-note="1"><span class="num">1</span><span class="kbd">Z</span></div>
+        <div class="kh-key" data-note="2"><span class="num">2</span><span class="kbd">X</span></div>
+        <div class="kh-key" data-note="3"><span class="num">3</span><span class="kbd">C</span></div>
+        <div class="kh-key" data-note="4"><span class="num">4</span><span class="kbd">V</span></div>
+        <div class="kh-key" data-note="5"><span class="num">5</span><span class="kbd">B</span></div>
+        <div class="kh-key" data-note="6"><span class="num">6</span><span class="kbd">N</span></div>
+        <div class="kh-key" data-note="7"><span class="num">7</span><span class="kbd">M</span></div>
+        <div class="kh-key" data-note="i"><span class="num">i</span><span class="kbd">,</span></div>
+      </div>
+      <div class="convert-hint" id="convertHint" style="display:none;">
+        &#128161; 保存后可到 <b>练习</b> Tab 下落跟练 · 点击设置可修改键位映射
+      </div>
+    </div>
+
+    <!-- ============ 练习页 ============ -->
+    <div class="page" id="page-practice">
+      <div class="toolbar">
+        <select id="scoreSelect" class="btn-select">
+          <option value="">&#8212; 选择简谱 &#8212;</option>
+        </select>
+        <button class="btn-primary" id="btnLoadScore">&#128450; 加载</button>
+        <button class="btn-del" id="btnDelScore">&#128465;&#65039;</button>
+        <button class="btn-toggle" id="btnOpenFolder">&#128450; 打开文件夹</button>
+        <div class="spacer"></div>
+        <button class="btn-toggle" id="btnShowOctave">显示八度</button>
+      </div>
+
+      <div class="practice-area" id="practiceArea">
+        <div class="fall-stage" id="fallStage">
+          <div class="hit-line"></div>
+        </div>
+        <div class="practice-empty" id="practiceEmpty">
+          <div class="empty-icon">&#127929;</div>
+          <div>加载一首简谱开始练习</div>
+          <div class="hint">音符从上方下落，按对应键位吹/按即可</div>
+        </div>
+      </div>
+
+      <!-- 鼠标操作提示 -->
+      <div class="mouse-hint" id="mouseHint" style="display:none;"></div>
+
+      <div class="keyhint-row">
+        <div class="kh-key" data-note="1"><span class="num">1</span><span class="kbd">Z</span></div>
+        <div class="kh-key" data-note="2"><span class="num">2</span><span class="kbd">X</span></div>
+        <div class="kh-key" data-note="3"><span class="num">3</span><span class="kbd">C</span></div>
+        <div class="kh-key" data-note="4"><span class="num">4</span><span class="kbd">V</span></div>
+        <div class="kh-key" data-note="5"><span class="num">5</span><span class="kbd">B</span></div>
+        <div class="kh-key" data-note="6"><span class="num">6</span><span class="kbd">N</span></div>
+        <div class="kh-key" data-note="7"><span class="num">7</span><span class="kbd">M</span></div>
+        <div class="kh-key" data-note="i"><span class="num">i</span><span class="kbd">,</span></div>
+      </div>
+
+      <div class="practice-controls" id="practiceControls" style="display:none;">
+        <button class="play-btn" id="btnPlay">&#9654;</button>
+        <div class="progress">
+          <div class="progress-fill" id="pFill"></div>
+        </div>
+        <span id="pTime">00:00</span>
+        <select id="pSpeed" class="btn-select small">
+          <option value="0.5">0.5x</option>
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ============ 设置页 ============ -->
+    <div class="page" id="page-settings">
+      <div class="settings-body" id="spBody">
+        <div class="sp-section">
+          <h4>&#9881;&#65039; 键位映射设置</h4>
+          <p class="sp-desc">点击上方「设置」按钮或 <b>⚙️ 设置</b> Tab 修改键位映射。</p>
+          <p class="sp-warn">&#9888;&#65039; 默认键位映射基于社区调研假设，待游戏内实测后修正。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 设置面板 (浮动) -->
+  <div class="settings-panel" id="settingsPanel" style="display:none;">
+    <div class="sp-header">&#9881;&#65039; 设置 <button class="sp-close" id="spClose">&#215;</button></div>
+    <div class="sp-body" id="spBodyPanel">
+      <div class="sp-row">
+        <label>窗口透明度</label>
+        <input type="range" id="opacitySlider" min="30" max="100" value="100">
+        <span id="opacityVal">100%</span>
+      </div>
+      <div class="sp-row">
+        <label>总在最前</label>
+        <button class="btn-toggle" id="btnAlwaysOnTop">关闭</button>
+      </div>
+      <div class="sp-row">
+        <label>快捷键</label>
+        <div class="sp-hotkeys">Ctrl+Alt+H 隐藏/显示 &#183; Ctrl+Alt+Q 退出 &#183; 空格 播放/暂停</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全局错误层 -->
+  <div id="fatalError" style="display:none;position:fixed;inset:0;background:#1a1a28;color:#ff6b6b;z-index:9999;padding:20px;font-family:monospace;white-space:pre-wrap;"></div>
+
+  <script>
+    window.addEventListener('error', function(e) {
+      const box = document.getElementById('fatalError');
+      if (box) { box.style.display = 'block'; box.textContent = '&#10060; 脚本错误:\n' + e.message + '\n行: ' + e.lineno; }
+    });
+    window.addEventListener('unhandledrejection', function(e) {
+      const box = document.getElementById('fatalError');
+      if (box) { box.style.display = 'block'; box.textContent = '&#10060; 异步错误:\n' + (e.reason?.message || String(e.reason)); }
+    });
+  </script>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

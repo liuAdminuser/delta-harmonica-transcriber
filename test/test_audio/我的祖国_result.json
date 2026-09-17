@@ -1,0 +1,150 @@
+{
+  "key": "C",
+  "bpm": 96,
+  "notes": [
+    {
+      "time": 0.0116,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 0.6385,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 1.2655,
+      "duration": 0.5921,
+      "type": "note",
+      "midi": 72,
+      "num": 1,
+      "octave": "high"
+    },
+    {
+      "time": 1.904,
+      "duration": 0.5702,
+      "type": "note",
+      "midi": 74,
+      "num": 2,
+      "octave": "high"
+    },
+    {
+      "time": 2.5206,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 72,
+      "num": 1,
+      "octave": "high"
+    },
+    {
+      "time": 3.1476,
+      "duration": 0.5921,
+      "type": "note",
+      "midi": 71,
+      "num": 7,
+      "octave": "mid"
+    },
+    {
+      "time": 3.7861,
+      "duration": 0.5818,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 4.4144,
+      "duration": 0.5921,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 5.0529,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 65,
+      "num": 4,
+      "octave": "mid"
+    },
+    {
+      "time": 5.6798,
+      "duration": 0.4773,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 6.2965,
+      "duration": 0.4992,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 6.935,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 72,
+      "num": 1,
+      "octave": "high"
+    },
+    {
+      "time": 7.5736,
+      "duration": 0.5702,
+      "type": "note",
+      "midi": 71,
+      "num": 7,
+      "octave": "mid"
+    },
+    {
+      "time": 8.1902,
+      "duration": 0.5921,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 8.8287,
+      "duration": 0.5805,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 9.4557,
+      "duration": 0.5818,
+      "type": "note",
+      "midi": 65,
+      "num": 4,
+      "octave": "mid"
+    },
+    {
+      "time": 10.0839,
+      "duration": 0.5921,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    }
+  ],
+  "_meta": {
+    "engine": "basic-pitch ONNX",
+    "model": "/home/gem/.aily/.cli/python/lib/python3.10/site-packages/basic_pitch/saved_models/icassp_2022/nmp.onnx",
+    "onsetThreshold": 0.5,
+    "frameThreshold": 0.25,
+    "minimumNoteLength": 40,
+    "processingTimeMs": 1728.5
+  }
+}

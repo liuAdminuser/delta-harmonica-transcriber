@@ -1,0 +1,90 @@
+{
+  "name": "雪绒花",
+  "notes": [
+    {
+      "time": 0.0,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 0.6,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 1.2,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 1.8,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 2.4,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 3.0,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 3.6,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 4.2,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 4.8,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.4,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 6.0,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 6.6,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 7.2,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 7.8,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 8.4,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 9.0,
+      "midi": 59,
+      "notation": "(7)"
+    },
+    {
+      "time": 9.6,
+      "midi": 60,
+      "notation": "1"
+    }
+  ]
+}

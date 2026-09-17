@@ -1,0 +1,90 @@
+{
+  "name": "我的祖国",
+  "notes": [
+    {
+      "time": 0.0,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 0.63,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 1.26,
+      "midi": 72,
+      "notation": "【1】"
+    },
+    {
+      "time": 1.89,
+      "midi": 74,
+      "notation": "【2】"
+    },
+    {
+      "time": 2.52,
+      "midi": 72,
+      "notation": "【1】"
+    },
+    {
+      "time": 3.15,
+      "midi": 71,
+      "notation": "7"
+    },
+    {
+      "time": 3.78,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 4.41,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 5.04,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 5.67,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 6.3,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 6.93,
+      "midi": 72,
+      "notation": "【1】"
+    },
+    {
+      "time": 7.56,
+      "midi": 71,
+      "notation": "7"
+    },
+    {
+      "time": 8.19,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 8.82,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 9.45,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 10.08,
+      "midi": 64,
+      "notation": "3"
+    }
+  ]
+}

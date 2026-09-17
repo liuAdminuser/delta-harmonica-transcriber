@@ -1,0 +1,100 @@
+{
+  "name": "生日快乐",
+  "notes": [
+    {
+      "time": 0.0,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 0.4,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 0.8,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 1.2,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 1.6,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 2.0,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 2.4,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 2.8,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 3.2,
+      "midi": 62,
+      "notation": "2"
+    },
+    {
+      "time": 3.6,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 4.0,
+      "midi": 67,
+      "notation": "5"
+    },
+    {
+      "time": 4.4,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 4.8,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.2,
+      "midi": 60,
+      "notation": "1"
+    },
+    {
+      "time": 5.6,
+      "midi": 72,
+      "notation": "【1】"
+    },
+    {
+      "time": 6.0,
+      "midi": 69,
+      "notation": "6"
+    },
+    {
+      "time": 6.4,
+      "midi": 65,
+      "notation": "4"
+    },
+    {
+      "time": 6.8,
+      "midi": 64,
+      "notation": "3"
+    },
+    {
+      "time": 7.2,
+      "midi": 62,
+      "notation": "2"
+    }
+  ]
+}

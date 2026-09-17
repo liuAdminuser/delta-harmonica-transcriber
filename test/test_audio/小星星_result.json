@@ -1,0 +1,78 @@
+{
+  "key": "C",
+  "bpm": 66,
+  "notes": [
+    {
+      "time": 0.0116,
+      "duration": 0.8707,
+      "type": "note",
+      "midi": 60,
+      "num": 1,
+      "octave": "mid"
+    },
+    {
+      "time": 0.9056,
+      "duration": 0.7895,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 1.8112,
+      "duration": 0.872,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 2.7064,
+      "duration": 0.3251,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 3.136,
+      "duration": 0.8127,
+      "type": "note",
+      "midi": 65,
+      "num": 4,
+      "octave": "mid"
+    },
+    {
+      "time": 4.0544,
+      "duration": 0.7779,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 4.96,
+      "duration": 0.7779,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    },
+    {
+      "time": 5.854,
+      "duration": 0.4425,
+      "type": "note",
+      "midi": 60,
+      "num": 1,
+      "octave": "mid"
+    }
+  ],
+  "_meta": {
+    "engine": "basic-pitch ONNX",
+    "model": "/home/gem/.aily/.cli/python/lib/python3.10/site-packages/basic_pitch/saved_models/icassp_2022/nmp.onnx",
+    "onsetThreshold": 0.5,
+    "frameThreshold": 0.25,
+    "minimumNoteLength": 40,
+    "processingTimeMs": 1669.0
+  }
+}

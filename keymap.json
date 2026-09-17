@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "description": "三角洲行动守夜人口琴键位映射配置（默认值基于社区调研假设，待游戏内实测后修正）",
+  "lastVerified": null,
+
+  "baseKeys": {
+    "1": { "midiNote": 60, "keyboard": "Z", "noteName": "C4", "display": "1" },
+    "2": { "midiNote": 62, "keyboard": "X", "noteName": "D4", "display": "2" },
+    "3": { "midiNote": 64, "keyboard": "C", "noteName": "E4", "display": "3" },
+    "4": { "midiNote": 65, "keyboard": "V", "noteName": "F4", "display": "4" },
+    "5": { "midiNote": 67, "keyboard": "B", "noteName": "G4", "display": "5" },
+    "6": { "midiNote": 69, "keyboard": "N", "noteName": "A4", "display": "6" },
+    "7": { "midiNote": 71, "keyboard": "M", "noteName": "B4", "display": "7" },
+    "i": { "midiNote": 72, "keyboard": ",", "noteName": "C5", "display": "i" }
+  },
+
+  "octaveModifiers": {
+    "bass": { "button": "mouse-left", "midiOffset": -12, "notationPrefix": "(", "notationSuffix": ")" },
+    "middle": { "button": null, "midiOffset": 0, "notationPrefix": "", "notationSuffix": "" },
+    "treble": { "button": "mouse-right", "midiOffset": +12, "notationPrefix": "【", "notationSuffix": "】" }
+  },
+
+  "sharpModifier": {
+    "button": "mouse-middle",
+    "midiOffset": +1,
+    "notationPrefix": "#",
+    "notationSuffix": ""
+  },
+
+  "range": {
+    "minMidi": 48,
+    "maxMidi": 84,
+    "comfortLow": 55,
+    "comfortHigh": 76
+  },
+
+  "naturalPitchClasses": [0, 2, 4, 5, 7, 9, 11],
+
+  "display": {
+    "colors": {
+      "bass": { "bg": "#2ecc71", "text": "#fff" },
+      "middle": { "bg": "#4a90d9", "text": "#fff" },
+      "treble": { "bg": "#e67e22", "text": "#fff" },
+      "sharp": { "border": "#f1c40f", "text": "#f1c40f" }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "key": "C",
+  "bpm": 99,
+  "notes": [
+    {
+      "time": 0.0116,
+      "duration": 1.1262,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 1.2074,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 1.8112,
+      "duration": 0.5237,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 2.4045,
+      "duration": 0.5341,
+      "type": "note",
+      "midi": 72,
+      "num": 1,
+      "octave": "high"
+    },
+    {
+      "time": 2.9967,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 69,
+      "num": 6,
+      "octave": "mid"
+    },
+    {
+      "time": 3.612,
+      "duration": 0.5237,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 4.1938,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 4.7975,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    },
+    {
+      "time": 5.4128,
+      "duration": 0.5341,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 5.9946,
+      "duration": 0.5341,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 6.6099,
+      "duration": 0.5341,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 7.202,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    },
+    {
+      "time": 7.8058,
+      "duration": 0.547,
+      "type": "note",
+      "midi": 60,
+      "num": 1,
+      "octave": "mid"
+    }
+  ],
+  "_meta": {
+    "engine": "basic-pitch ONNX",
+    "model": "/home/gem/.aily/.cli/python/lib/python3.10/site-packages/basic_pitch/saved_models/icassp_2022/nmp.onnx",
+    "onsetThreshold": 0.5,
+    "frameThreshold": 0.25,
+    "minimumNoteLength": 40,
+    "processingTimeMs": 1698.6
+  }
+}

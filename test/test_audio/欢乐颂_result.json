@@ -1,0 +1,94 @@
+{
+  "key": "C",
+  "bpm": 101,
+  "notes": [
+    {
+      "time": 0.0116,
+      "duration": 1.0101,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 1.161,
+      "duration": 0.5457,
+      "type": "note",
+      "midi": 65,
+      "num": 4,
+      "octave": "mid"
+    },
+    {
+      "time": 1.7531,
+      "duration": 1.1042,
+      "type": "note",
+      "midi": 67,
+      "num": 5,
+      "octave": "mid"
+    },
+    {
+      "time": 2.9038,
+      "duration": 0.4412,
+      "type": "note",
+      "midi": 65,
+      "num": 4,
+      "octave": "mid"
+    },
+    {
+      "time": 3.4843,
+      "duration": 0.4412,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 4.0544,
+      "duration": 0.4412,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    },
+    {
+      "time": 4.6349,
+      "duration": 1.0333,
+      "type": "note",
+      "midi": 60,
+      "num": 1,
+      "octave": "mid"
+    },
+    {
+      "time": 5.8076,
+      "duration": 0.4309,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    },
+    {
+      "time": 6.3777,
+      "duration": 1.1262,
+      "type": "note",
+      "midi": 64,
+      "num": 3,
+      "octave": "mid"
+    },
+    {
+      "time": 7.5503,
+      "duration": 1.1158,
+      "type": "note",
+      "midi": 62,
+      "num": 2,
+      "octave": "mid"
+    }
+  ],
+  "_meta": {
+    "engine": "basic-pitch ONNX",
+    "model": "/home/gem/.aily/.cli/python/lib/python3.10/site-packages/basic_pitch/saved_models/icassp_2022/nmp.onnx",
+    "onsetThreshold": 0.5,
+    "frameThreshold": 0.25,
+    "minimumNoteLength": 40,
+    "processingTimeMs": 1704.4
+  }
+}
