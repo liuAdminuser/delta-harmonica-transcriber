@@ -2,7 +2,10 @@ const { app, BrowserWindow, ipcMain, globalShortcut, dialog } = require('electro
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const ffmpegPath = require('ffmpeg-static');
+let ffmpegPath = require('ffmpeg-static');
+if (ffmpegPath && ffmpegPath.includes('app.asar')) {
+  ffmpegPath = ffmpegPath.replace('app.asar', 'app.asar.unpacked');
+}
 const { spawn } = require('child_process');
 
 const USER_SCORES = path.join(app.getPath('userData'), 'scores');
@@ -150,6 +153,10 @@ function resolvePython() {
 
 // 兼容开发与打包后环境：extraResources 会放在 process.resourcesPath/resources/
 function resolveResource(fileName) {
+  if (app.isPackaged) {
+    const prodPath = path.join(process.resourcesPath, 'resources', fileName);
+    if (fs.existsSync(prodPath)) return prodPath;
+  }
   const devPath = path.join(__dirname, fileName);
   if (fs.existsSync(devPath)) return devPath;
   const prodPath = path.join(process.resourcesPath, 'resources', fileName);

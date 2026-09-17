@@ -51,6 +51,8 @@
     },
     "portable": {
       "artifactName": "${productName}-Portable-${version}.exe"
-    }
+    },
+    "asarUnpack": ["node_modules/ffmpeg-static/**"]
+
   }
 }
